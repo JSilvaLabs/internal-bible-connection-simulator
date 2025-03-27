@@ -1,0 +1,185 @@
+/* Basic Reset & Body Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex; /* Use flexbox for overall layout */
+    flex-direction: column; /* Stack title above content */
+    min-height: 95vh;
+}
+
+h1 {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* App Layout */
+#app-container {
+    display: flex;
+    flex-grow: 1; /* Allow container to fill available space */
+    gap: 20px; /* Space between visualization and controls */
+}
+
+#visualization-container {
+    flex: 3; /* Give visualization more space */
+    min-width: 500px; /* Ensure it has a minimum size */
+    min-height: 500px; /* Ensure it has a minimum size */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    /* SVG will be centered by D3 within this container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide anything overflowing the container */
+}
+
+#controls-and-text {
+    flex: 1; /* Give controls/text less space */
+    min-width: 300px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Controls Area */
+#verse-selector {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#verse-selector label {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px; /* Add space below labels */
+}
+
+#verse-selector select {
+    margin-right: 10px;
+    padding: 5px;
+    min-width: 80px; /* Give dropdowns some base width */
+    margin-bottom: 10px; /* Add space below dropdowns */
+}
+
+#verse-selector button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+
+/* Verse Display Area */
+#verse-display {
+    flex-grow: 1; /* Allow this area to fill remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+#verse-display-title {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+#verse-display-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow text paragraph to expand */
+    overflow-y: auto; /* Scroll if text is very long */
+    max-height: 30vh; /* Limit max height */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+#verse-connections-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 25vh; /* Limit height of connections list */
+    overflow-y: auto; /* Allow scrolling for many connections */
+}
+
+#verse-connections-list li {
+    margin-bottom: 5px;
+}
+
+#verse-connections-list a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#verse-connections-list a:hover {
+    text-decoration: underline;
+}
+
+
+/* Loading/Error Indicators */
+#loading-indicator {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+}
+
+#error-message {
+    background-color: #ffdddd;
+    border: 1px solid #fcc;
+    color: #d8000c;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* --- Visualization Styles (Placeholders - D3 will add elements) --- */
+
+/* Style for the main arcs representing books/chapters */
+.book-arc {
+    stroke: #fff;
+    stroke-width: 0.5px;
+    fill: steelblue; /* Default fill */
+    opacity: 0.7;
+}
+.book-arc:hover {
+    opacity: 1.0; /* Make arc slightly more opaque on hover */
+}
+
+/* Style for the connection lines */
+.connection {
+    stroke: #aaa;
+    stroke-width: 0.5px;
+    stroke-opacity: 0.2; /* Make connections faint by default */
+    fill: none; /* Important for lines/paths */
+    pointer-events: none; /* Lines themselves shouldn't capture mouse events */
+}
+
+/* Style for highlighted connection lines */
+.connection.highlighted {
+    stroke: orange;
+    stroke-width: 1.5px;
+    stroke-opacity: 0.9;
+}
+
+/* Style for selected connection lines (could be same as highlighted or different) */
+.connection.selected {
+    stroke: crimson; /* Use a distinct color for selection */
+    stroke-width: 1.5px;
+    stroke-opacity: 0.9;
+}
+
+/* Style for book arcs when selected/highlighted (Optional) */
+.book-arc.highlighted {
+     /* Add specific style if desired, e.g., stroke */
+    stroke: orange;
+    stroke-width: 1px;
+}
+.book-arc.selected {
+    stroke: crimson;
+    stroke-width: 1.5px;
+    opacity: 1.0;
+}

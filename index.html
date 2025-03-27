@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Bible Connection Simulator</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Link to the D3.js library (using a CDN for simplicity) -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Internal Bible Connection Simulator</h1>
+
+    <div id="app-container">
+        <!-- Area for the main circular visualization -->
+        <div id="visualization-container">
+            <!-- SVG will be appended here by D3.js -->
+        </div>
+
+        <!-- Area to display information and controls -->
+        <div id="controls-and-text">
+            <h2>Verse Information</h2>
+
+            <!-- Area for selecting a verse (e.g., using dropdowns) -->
+            <div id="verse-selector">
+                <label for="book-select">Book:</label>
+                <select id="book-select" name="book"></select>
+
+                <label for="chapter-select">Chapter:</label>
+                <select id="chapter-select" name="chapter"></select>
+
+                <label for="verse-select">Verse:</label>
+                <select id="verse-select" name="verse"></select>
+
+                <button id="goto-verse-button">Go</button>
+            </div>
+
+            <!-- Area to display the text of the selected/hovered verse -->
+            <div id="verse-display">
+                <h3 id="verse-display-title">Select or hover over a verse</h3>
+                <p id="verse-display-text">...</p>
+                <h4>Connections:</h4>
+                <ul id="verse-connections-list">
+                    <!-- Connection links will be added here by uiController.js -->
+                </ul>
+            </div>
+
+             <!-- Loading Indicator -->
+             <div id="loading-indicator" style="display: none;">Loading Bible data...</div>
+             <!-- Error Display -->
+             <div id="error-message" style="color: red; display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Link to the main JavaScript file - use type="module" for ES6 modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
